@@ -39,6 +39,8 @@
 		8B1214FA27550C7C0060E8F2 /* MockDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1214F927550C7C0060E8F2 /* MockDependency.swift */; };
 		8B1214FC27550D090060E8F2 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1214FB27550D090060E8F2 /* AppCoordinatorTests.swift */; };
 		8B1214FE27550D5B0060E8F2 /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1214FD27550D5B0060E8F2 /* HomeCoordinatorTests.swift */; };
+		8B121500275512E40060E8F2 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1214FF275512E40060E8F2 /* UIImage+Load.swift */; };
+		8B121502275513300060E8F2 /* URLSession+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B121501275513300060E8F2 /* URLSession+Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		8B1214F927550C7C0060E8F2 /* MockDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDependency.swift; sourceTree = "<group>"; };
 		8B1214FB27550D090060E8F2 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		8B1214FD27550D5B0060E8F2 /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
+		8B1214FF275512E40060E8F2 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
+		8B121501275513300060E8F2 /* URLSession+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Profile.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				8B1214E62754FA640060E8F2 /* Instantiatable.swift */,
+				8B1214FF275512E40060E8F2 /* UIImage+Load.swift */,
+				8B121501275513300060E8F2 /* URLSession+Profile.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -355,6 +361,8 @@
 				8B1214DF2754F7770060E8F2 /* Coordinator.swift in Sources */,
 				8B1214CC2754F5E30060E8F2 /* Profile.swift in Sources */,
 				8B1214E72754FA640060E8F2 /* Instantiatable.swift in Sources */,
+				8B121502275513300060E8F2 /* URLSession+Profile.swift in Sources */,
+				8B121500275512E40060E8F2 /* UIImage+Load.swift in Sources */,
 				8B1214C22754F3F90060E8F2 /* AppDependency.swift in Sources */,
 				8B1214DC2754F6FB0060E8F2 /* StarredRepositories.swift in Sources */,
 				8B1214C92754F4E80060E8F2 /* LocalProfileDataProvider.swift in Sources */,
