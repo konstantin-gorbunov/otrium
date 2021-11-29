@@ -27,24 +27,47 @@ class HomeCoordinator<T: Dependency>: Coordinator<T> {
 
         dependency.dataProvider.fetchProfile { result in
             DispatchQueue.main.async { [weak self] in
-                self?.processResults(result)
+                self?.processResults(result, success: { [weak self] profileUserData in
+                    self?.showProfileViewController(profileUserData)
+                }, error: { [weak self] errorViewController in
+                    self?.navigationViewController.viewControllers = [errorViewController]
+                })
             }
         }
     }
-
-    private func processResults(_ result: DataProvider.FetchProfileResult) {
-        guard case .success(let profile) = result, let profileUserData = profile.data?.user else {
-            let errorViewController = ErrorViewController(nibName: nil, bundle: nil)
-            errorViewController.title = title
-            navigationViewController.viewControllers = [errorViewController]
-            return
-        }
-
+    
+    private func showProfileViewController(_ profileUserData: User) {
         let profileViewController = ProfileViewController(
             viewModel: ProfileViewModel(user: profileUserData),
             layout: UICollectionViewFlowLayout()
         )
+        profileViewController.delegate = self
         profileViewController.title = title
         navigationViewController.viewControllers = [profileViewController]
+    }
+
+    private func processResults(_ result: DataProvider.FetchProfileResult, success: ((_ profileUserData: User) -> Void), error: ((_ errorViewController: ErrorViewController) -> Void)) {
+        guard case .success(let profile) = result, let profileUserData = profile.data?.user else {
+            let errorViewController = ErrorViewController(nibName: nil, bundle: nil)
+            errorViewController.title = title
+            error(errorViewController)
+            return
+        }
+        success(profileUserData)
+    }
+}
+
+extension HomeCoordinator: ProfileViewControllabel {
+    func refresh(_ sender: ProfileViewController) {
+        dependency.dataProvider.fetchProfile { result in
+            DispatchQueue.main.async { [weak self] in
+                self?.processResults(result, success: { profileUserData in
+                    sender.update(viewModel: ProfileViewModel(user: profileUserData))
+                }, error: { [weak self] errorViewController in
+                    sender.update(viewModel: nil)
+                    self?.navigationViewController.pushViewController(errorViewController, animated: true)
+                })
+            }
+        }
     }
 }
