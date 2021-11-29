@@ -41,6 +41,7 @@
 		8B1214FE27550D5B0060E8F2 /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1214FD27550D5B0060E8F2 /* HomeCoordinatorTests.swift */; };
 		8B121500275512E40060E8F2 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1214FF275512E40060E8F2 /* UIImage+Load.swift */; };
 		8B121502275513300060E8F2 /* URLSession+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B121501275513300060E8F2 /* URLSession+Profile.swift */; };
+		8B12150427551DDB0060E8F2 /* LiveProfileDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12150327551DDB0060E8F2 /* LiveProfileDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		8B1214FD27550D5B0060E8F2 /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
 		8B1214FF275512E40060E8F2 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
 		8B121501275513300060E8F2 /* URLSession+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Profile.swift"; sourceTree = "<group>"; };
+		8B12150327551DDB0060E8F2 /* LiveProfileDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveProfileDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			children = (
 				8B1214C42754F4310060E8F2 /* DataProvider.swift */,
 				8B1214C82754F4E80060E8F2 /* LocalProfileDataProvider.swift */,
+				8B12150327551DDB0060E8F2 /* LiveProfileDataProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				8B1214C92754F4E80060E8F2 /* LocalProfileDataProvider.swift in Sources */,
 				8B1214D82754F6D30060E8F2 /* Owner.swift in Sources */,
 				8B1214E12754F79E0060E8F2 /* AppCoordinator.swift in Sources */,
+				8B12150427551DDB0060E8F2 /* LiveProfileDataProvider.swift in Sources */,
 				8B1214E32754F7E40060E8F2 /* HomeCoordinator.swift in Sources */,
 				8B12148E2754F07B0060E8F2 /* AppDelegate.swift in Sources */,
 				8B1214D02754F6760060E8F2 /* User.swift in Sources */,
