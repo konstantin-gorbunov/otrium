@@ -1,0 +1,67 @@
+query {
+  user(login: "konstantin-gorbunov") {
+    avatarUrl
+    name
+    login
+    email
+    pinnedItems(types: REPOSITORY, first: 3) {
+      nodes {
+        ... on Repository {
+          owner {
+            ... on User {
+              avatarUrl
+              login
+            }
+          }
+          name
+          description
+          stargazerCount
+          primaryLanguage {
+            name
+          }
+        }
+      }
+    }
+    topRepositories(
+      orderBy: { field: UPDATED_AT, direction: ASC }
+      first: 10
+    ) {
+      nodes {
+        owner {
+          avatarUrl
+          login
+        }
+        name
+        description
+        stargazerCount
+        primaryLanguage {
+          name
+        }
+      }
+    }
+    starredRepositories(
+      first: 10
+      orderBy: { field: STARRED_AT, direction: ASC }
+    ) {
+      totalCount
+      nodes {
+        name
+        description
+        stargazerCount
+        primaryLanguage {
+          name
+        }
+        owner {
+          avatarUrl
+          login
+        }
+      }
+    }
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+  }
+}
