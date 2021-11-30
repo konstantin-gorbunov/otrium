@@ -39,7 +39,7 @@ class HomeCoordinator<T: Dependency>: Coordinator<T> {
     private func showProfileViewController(_ profileUserData: User) {
         let profileViewController = ProfileViewController(
             viewModel: ProfileViewModel(user: profileUserData),
-            layout: UICollectionViewFlowLayout()
+            layout: ProfileViewController.createLayout()
         )
         profileViewController.delegate = self
         profileViewController.title = title

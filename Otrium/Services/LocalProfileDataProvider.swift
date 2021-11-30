@@ -22,7 +22,7 @@ struct LocalProfileDataProvider: DataProvider {
         queue.async {
             do {
                 let jsonData = try Data(contentsOf: path)
-                let result = try! JSONDecoder().decode(Profile.self, from: jsonData)
+                let result = try JSONDecoder().decode(Profile.self, from: jsonData)
 
                 DispatchQueue.main.async {
                     completion(.success(result))

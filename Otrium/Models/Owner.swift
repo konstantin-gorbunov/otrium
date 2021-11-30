@@ -6,11 +6,6 @@
 //
 
 struct Owner: Codable {
-    let avatarURL: String?
+    let avatarUrl: String?
     let login: String?
-
-    enum CodingKeys: String, CodingKey {
-        case avatarURL
-        case login
-    }
 }

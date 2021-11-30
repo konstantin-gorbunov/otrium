@@ -11,10 +11,4 @@ struct Node: Codable {
     let nodeDescription: String?
     let stargazerCount: Int?
     let primaryLanguage: PrimaryLanguage?
-
-    enum CodingKeys: String, CodingKey {
-        case owner, name
-        case nodeDescription
-        case stargazerCount, primaryLanguage
-    }
 }
