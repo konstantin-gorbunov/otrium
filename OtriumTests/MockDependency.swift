@@ -19,8 +19,12 @@ class MockDataProvider: DataProvider {
 
 class MockDependency: Dependency {
 
-//    let dataProvider: DataProvider = LocalProfileDataProvider()
     let dataProvider: DataProvider = MockDataProvider()
+}
+
+class LocalDependency: Dependency {
+
+    let dataProvider: DataProvider = LocalProfileDataProvider()
 }
 
 extension Profile {
@@ -29,7 +33,7 @@ extension Profile {
     }
     
     static func mockProfile() -> Profile {
-        let user = User(avatarURL: "https://avatars.githubusercontent.com/u/359601?v=4",
+        let user = User(avatarUrl: "https://avatars.githubusercontent.com/u/359601?v=4",
                         name: "Kostiantyn Gorbunov",
                         login: "konstantin-gorbunov",
                         email: "gkboxmail@gmail.com",

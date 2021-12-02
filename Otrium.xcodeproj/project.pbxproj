@@ -48,6 +48,7 @@
 		8B6DA4F92758D4CA00B9FDD0 /* Array+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4F82758D4CA00B9FDD0 /* Array+Safe.swift */; };
 		8B6DA4FB2758E4C800B9FDD0 /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4FA2758E4C800B9FDD0 /* RepoViewModel.swift */; };
 		8B6DA4FD275908C900B9FDD0 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4FC275908C900B9FDD0 /* RepoCell.swift */; };
+		8B6DA4FF275919FB00B9FDD0 /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4FE275919FB00B9FDD0 /* ProfileViewModelTests.swift */; };
 		8BE2EF83275653A500D467C9 /* GeneralInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE2EF82275653A500D467C9 /* GeneralInfoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		8B6DA4F82758D4CA00B9FDD0 /* Array+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Safe.swift"; sourceTree = "<group>"; };
 		8B6DA4FA2758E4C800B9FDD0 /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		8B6DA4FC275908C900B9FDD0 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		8B6DA4FE275919FB00B9FDD0 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		8BE2EF82275653A500D467C9 /* GeneralInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				8B1214F927550C7C0060E8F2 /* MockDependency.swift */,
 				8B1214FB27550D090060E8F2 /* AppCoordinatorTests.swift */,
 				8B1214FD27550D5B0060E8F2 /* HomeCoordinatorTests.swift */,
+				8B6DA4FE275919FB00B9FDD0 /* ProfileViewModelTests.swift */,
 			);
 			path = OtriumTests;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			files = (
 				8B1214FA27550C7C0060E8F2 /* MockDependency.swift in Sources */,
 				8B1214FC27550D090060E8F2 /* AppCoordinatorTests.swift in Sources */,
+				8B6DA4FF275919FB00B9FDD0 /* ProfileViewModelTests.swift in Sources */,
 				8B1214FE27550D5B0060E8F2 /* HomeCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
