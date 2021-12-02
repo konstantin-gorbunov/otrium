@@ -73,11 +73,11 @@ class GeneralInfoCell: UICollectionViewCell {
     
     private func resetView() {
         imageView.image = UIImage(named: "avatar")
-        nameLabel.text = nil
-        nicknameLabel.text = nil
-        emailLabel.text = nil
-        followersLabel.text = nil
-        followingLabel.text = nil
+        nameLabel.attributedText = nil
+        nicknameLabel.attributedText = nil
+        emailLabel.attributedText = nil
+        followersLabel.attributedText = nil
+        followingLabel.attributedText = nil
     }
     
     private func setupImageView() {

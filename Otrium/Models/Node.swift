@@ -8,7 +8,7 @@
 struct Node: Codable {
     let owner: Owner?
     let name: String?
-    let nodeDescription: String?
+    let description: String?
     let stargazerCount: Int?
     let primaryLanguage: PrimaryLanguage?
 }

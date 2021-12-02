@@ -38,7 +38,7 @@ class HomeCoordinator<T: Dependency>: Coordinator<T> {
     
     private func showProfileViewController(_ profileUserData: User) {
         let viewModel = ProfileViewModel(user: profileUserData)
-        let layout = ProfileViewController.createLayout(viewModel.pinnedNotes?.count ?? 0)
+        let layout = ProfileViewController.createLayout(viewModel.pinnedNodes?.count ?? 0)
         let profileViewController = ProfileViewController(viewModel: viewModel, layout: layout)
         profileViewController.delegate = self
         profileViewController.title = title

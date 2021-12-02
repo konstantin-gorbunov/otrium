@@ -50,7 +50,7 @@ class ProfileViewController: UICollectionViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
         collectionView.register(GeneralInfoCell.self, forCellWithReuseIdentifier: GeneralInfoCell.Constants.reuseIdentifier)
-        collectionView.register(MockCell.self, forCellWithReuseIdentifier: MockCell.reuseIdentifier)
+        collectionView.register(RepoCell.self, forCellWithReuseIdentifier: RepoCell.Constants.reuseIdentifier)
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.Constants.reuseIdentifier)
         collectionView.refreshControl = refreshControl
         
@@ -58,46 +58,70 @@ class ProfileViewController: UICollectionViewController {
     }
     
     private func setupDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) { [weak self]
             (collectionView: UICollectionView, indexPath: IndexPath, identifier: Int) -> UICollectionViewCell? in
             if indexPath.section == 0 {
                 let topCell = collectionView.dequeueReusableCell(withReuseIdentifier: GeneralInfoCell.Constants.reuseIdentifier, for: indexPath)
                 if let cell = topCell as? GeneralInfoCell {
-                    cell.viewModel = GeneralInfoViewModel(user: self.viewModel.user)
+                    cell.viewModel = GeneralInfoViewModel(user: self?.viewModel.user)
                 }
                 return topCell
             }
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MockCell.reuseIdentifier, for: indexPath)
-            if let cell = cell as? MockCell {
-                cell.label.text = "Mock Cell"
-                // TODO: config me
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RepoCell.Constants.reuseIdentifier, for: indexPath)
+            if let cell = cell as? RepoCell {
+                if let nodes = self?.viewModel.nodes[indexPath.section],
+                    let node = nodes?[safeIndex: indexPath.row] {
+                    cell.viewModel = RepoViewModel(node: node, starCount: 0)
+                } else {
+                    cell.viewModel = nil
+                }
             }
             return cell
         }
         
-        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.Constants.reuseIdentifier, for: indexPath)
             if let header = header as? SectionHeader {
-                header.viewModel = SectionHeaderViewModel(name: self.viewModel.headerTitles[safeIndex: indexPath.section] ?? "")
+                header.viewModel = SectionHeaderViewModel(name: self?.viewModel.headerTitles[safeIndex: indexPath.section] ?? "")
             }
             return header
         }
-        
+
+        dataSource?.apply(generateSnapshot(), animatingDifferences: false)
+    }
+    
+    private func generateSnapshot() -> NSDiffableDataSourceSnapshot<Int, Int> {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
+        // general info section and item
         snapshot.appendSections([0])
         snapshot.appendItems([0])
-        snapshot.appendSections([1])
-        snapshot.appendItems([1, 2, 3]) // TODO: should be based on viewModel
-        
-        var identifierOffset = 4
-        let itemsPerSection = 10
-        for section in 2..<4 {
-            snapshot.appendSections([section])
-            let maxIdentifier = identifierOffset + itemsPerSection
-            snapshot.appendItems(Array(identifierOffset..<maxIdentifier))
-            identifierOffset += itemsPerSection
+        // pinned repo section and items
+        var sectionIndex = 1
+        var identifierIndex = 1
+        if (viewModel.pinnedNodes?.count ?? 0) > 0 {
+            snapshot.appendSections([sectionIndex])
+            sectionIndex += 1
+            let maxIdentifier = identifierIndex + (viewModel.pinnedNodes?.count ?? 0)
+            snapshot.appendItems(Array(identifierIndex..<maxIdentifier))
+            identifierIndex = maxIdentifier + 1
         }
-        dataSource?.apply(snapshot, animatingDifferences: false)
+        // top repo section and items
+        if (viewModel.topNodes?.count ?? 0) > 0 {
+            snapshot.appendSections([sectionIndex])
+            sectionIndex += 1
+            let maxIdentifier = identifierIndex + (viewModel.topNodes?.count ?? 0)
+            snapshot.appendItems(Array(identifierIndex..<maxIdentifier))
+            identifierIndex = maxIdentifier + 1
+        }
+        // starred repo section and items
+        if (viewModel.starNodes?.count ?? 0) > 0 {
+            snapshot.appendSections([sectionIndex])
+            sectionIndex += 1
+            let maxIdentifier = identifierIndex + (viewModel.starNodes?.count ?? 0)
+            snapshot.appendItems(Array(identifierIndex..<maxIdentifier))
+            identifierIndex = maxIdentifier + 1
+        }
+        return snapshot
     }
     
     private class func applyStandartHeaderAndInsets(_ section: NSCollectionLayoutSection) {
@@ -127,33 +151,5 @@ class ProfileViewController: UICollectionViewController {
             section.orthogonalScrollingBehavior = .continuous
             return section
         }
-    }
-}
-
-class MockCell: UICollectionViewCell {
-    let label = UILabel()
-    static let reuseIdentifier = "MockCell-reuse-identifier"
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.backgroundColor = .random
-        label.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(label)
-        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-    }
-    required init?(coder: NSCoder) {
-        fatalError("not implemnted")
-    }
-}
-
-extension UIColor {
-    static var random: UIColor {
-        return UIColor(red: .random(in: 0...1),
-                       green: .random(in: 0...1),
-                       blue: .random(in: 0...1),
-                       alpha: 0.7)
     }
 }
