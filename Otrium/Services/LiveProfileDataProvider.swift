@@ -28,7 +28,7 @@ struct LiveProfileDataProvider: DataProvider {
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
                 request.setValue("application/json", forHTTPHeaderField: "content-type")
-                request.setValue("bearer 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", forHTTPHeaderField: "Authorization")
+                request.setValue("bearer ghp_QMcGg8ulSHWv3Fjq5AqIPd1tucMlzj" + "30pBdl", forHTTPHeaderField: "Authorization")
                 request.httpBody = try Data(contentsOf: path)
                 let task = URLSession.shared.profileTask(with: request) { profile, response, error in
                     if let error = error {
