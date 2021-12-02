@@ -7,4 +7,7 @@
 
 struct ProfileViewModel {
     let user: User?
+    var pinnedNotes: [Node]? {
+        return user?.pinnedItems?.nodes
+    }
 }

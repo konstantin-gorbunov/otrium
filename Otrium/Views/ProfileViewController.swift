@@ -109,9 +109,9 @@ class ProfileViewController: UICollectionViewController {
         section.boundarySupplementaryItems = [header]
     }
     
-    class func createLayout() -> UICollectionViewLayout {
+    class func createLayout(_ pinnedNotesCount: Int) -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            if sectionIndex == 0 || sectionIndex == 1 {
+            if sectionIndex == 0 || (sectionIndex == 1 && pinnedNotesCount > 0) {
                 let height: CGFloat = sectionIndex == 0 ? 200 : 180
                 let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(height)), subitems: [item])
