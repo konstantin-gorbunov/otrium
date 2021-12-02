@@ -1,0 +1,21 @@
+Description:
+
+This test application is a "request to talk".
+
+Please do not think that it is an ideal, scalable, fully covered enterprise solution.
+
+There are plenty of things that can be improved, for example:
+
+- architecture;
+- test coverage and type of testing;
+- documentation;
+- localization; 
+- RTL support;
+- CI/CD configs;
+- code style and naming;
+- UX/UI;
+- refactoring of the whole project.
+
+I hope all those will not afraid you and you find a time to talk with me about my solution.
+
+Sincerely, KM Gorbunov.
