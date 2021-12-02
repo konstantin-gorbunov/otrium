@@ -75,11 +75,10 @@ class ProfileViewController: UICollectionViewController {
             return cell
         }
         
-        dataSource?.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.Constants.reuseIdentifier, for: indexPath)
             if let header = header as? SectionHeader {
-                header.label.text = "Header"
-                // TODO: config me
+                header.viewModel = SectionHeaderViewModel(name: self.viewModel.headerTitles[safeIndex: indexPath.section] ?? "")
             }
             return header
         }
@@ -128,36 +127,6 @@ class ProfileViewController: UICollectionViewController {
             section.orthogonalScrollingBehavior = .continuous
             return section
         }
-    }
-}
-
-class SectionHeader: UICollectionReusableView {
-
-    enum Constants {
-        static let reuseIdentifier: String = "sectionHeader"
-    }
-    
-    let label = UILabel()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    private func setup() {
-        backgroundColor = .orange
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(label)
-        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
 

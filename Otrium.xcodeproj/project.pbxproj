@@ -43,6 +43,9 @@
 		8B121502275513300060E8F2 /* URLSession+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B121501275513300060E8F2 /* URLSession+Profile.swift */; };
 		8B12150427551DDB0060E8F2 /* LiveProfileDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12150327551DDB0060E8F2 /* LiveProfileDataProvider.swift */; };
 		8B12150627554AAA0060E8F2 /* GeneralInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12150527554AAA0060E8F2 /* GeneralInfoViewModel.swift */; };
+		8B6DA4F52758D34200B9FDD0 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4F42758D34200B9FDD0 /* SectionHeader.swift */; };
+		8B6DA4F72758D35E00B9FDD0 /* SectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4F62758D35E00B9FDD0 /* SectionHeaderViewModel.swift */; };
+		8B6DA4F92758D4CA00B9FDD0 /* Array+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DA4F82758D4CA00B9FDD0 /* Array+Safe.swift */; };
 		8BE2EF83275653A500D467C9 /* GeneralInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE2EF82275653A500D467C9 /* GeneralInfoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,9 @@
 		8B121501275513300060E8F2 /* URLSession+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Profile.swift"; sourceTree = "<group>"; };
 		8B12150327551DDB0060E8F2 /* LiveProfileDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveProfileDataProvider.swift; sourceTree = "<group>"; };
 		8B12150527554AAA0060E8F2 /* GeneralInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoViewModel.swift; sourceTree = "<group>"; };
+		8B6DA4F42758D34200B9FDD0 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		8B6DA4F62758D35E00B9FDD0 /* SectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderViewModel.swift; sourceTree = "<group>"; };
+		8B6DA4F82758D4CA00B9FDD0 /* Array+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Safe.swift"; sourceTree = "<group>"; };
 		8BE2EF82275653A500D467C9 /* GeneralInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +244,7 @@
 				8B1214E62754FA640060E8F2 /* Instantiatable.swift */,
 				8B1214FF275512E40060E8F2 /* UIImage+Load.swift */,
 				8B121501275513300060E8F2 /* URLSession+Profile.swift */,
+				8B6DA4F82758D4CA00B9FDD0 /* Array+Safe.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 			children = (
 				8B1214F5275505730060E8F2 /* ProfileViewModel.swift */,
 				8B12150527554AAA0060E8F2 /* GeneralInfoViewModel.swift */,
+				8B6DA4F62758D35E00B9FDD0 /* SectionHeaderViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE2EF82275653A500D467C9 /* GeneralInfoCell.swift */,
+				8B6DA4F42758D34200B9FDD0 /* SectionHeader.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -370,10 +379,12 @@
 				8B1214CE2754F6130060E8F2 /* DataClass.swift in Sources */,
 				8B1214D62754F6B60060E8F2 /* Node.swift in Sources */,
 				8B1214D42754F6A30060E8F2 /* PinnedItems.swift in Sources */,
+				8B6DA4F92758D4CA00B9FDD0 /* Array+Safe.swift in Sources */,
 				8B1214F8275509060060E8F2 /* ProfileViewController.swift in Sources */,
 				8B1214F6275505730060E8F2 /* ProfileViewModel.swift in Sources */,
 				8B1214C52754F4310060E8F2 /* DataProvider.swift in Sources */,
 				8B1214EF2754FAD00060E8F2 /* LoadingViewController.swift in Sources */,
+				8B6DA4F72758D35E00B9FDD0 /* SectionHeaderViewModel.swift in Sources */,
 				8B1214D22754F68F0060E8F2 /* Follow.swift in Sources */,
 				8B1214DF2754F7770060E8F2 /* Coordinator.swift in Sources */,
 				8B1214CC2754F5E30060E8F2 /* Profile.swift in Sources */,
@@ -388,6 +399,7 @@
 				8B1214E12754F79E0060E8F2 /* AppCoordinator.swift in Sources */,
 				8B12150427551DDB0060E8F2 /* LiveProfileDataProvider.swift in Sources */,
 				8B1214E32754F7E40060E8F2 /* HomeCoordinator.swift in Sources */,
+				8B6DA4F52758D34200B9FDD0 /* SectionHeader.swift in Sources */,
 				8B12148E2754F07B0060E8F2 /* AppDelegate.swift in Sources */,
 				8BE2EF83275653A500D467C9 /* GeneralInfoCell.swift in Sources */,
 				8B1214D02754F6760060E8F2 /* User.swift in Sources */,
