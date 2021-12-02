@@ -13,3 +13,14 @@ Navigation to other screens or any action on clicking by something isn't require
 Implementation of GitHub OAuth flow isn't required.
 
 Time to complete 1 day but we will be glad to consider any results that you manage to provide during this time.
+
+
+Design https://www.figma.com/file/NpzCsVBdUfI2WoNbxXfJ8J/Dev-test
+
+Requirements:
+- Usage of Swift
+- MVP architecture for screen
+- Implementation of UI from the code. Avoid interface builders.
+- Use imperative programming paradigm. We don't use RxSwift, etc. - App should run on iOS 13 or higher.
+- Cover business logic layer by unit tests.
+- Cache data for 1 day and pull to refresh.
