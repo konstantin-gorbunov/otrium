@@ -71,7 +71,7 @@ class ProfileViewController: UICollectionViewController {
             if let cell = cell as? RepoCell {
                 if let nodes = self?.viewModel.nodes[indexPath.section],
                     let node = nodes?[safeIndex: indexPath.row] {
-                    cell.viewModel = RepoViewModel(node: node, starCount: 0)
+                    cell.viewModel = RepoViewModel(node: node)
                 } else {
                     cell.viewModel = nil
                 }

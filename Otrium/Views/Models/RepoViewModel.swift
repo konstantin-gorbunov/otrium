@@ -15,8 +15,8 @@ struct RepoViewModel {
     let language: String
     let imageUrl: URL?
     
-    init(node: Node, starCount: Int?) {
-        self.starCount = starCount ?? 0
+    init(node: Node) {
+        starCount = node.stargazerCount ?? 0
         nickname = node.owner?.login ?? ""
         name = node.name ?? ""
         description = node.description ?? ""
