@@ -70,8 +70,9 @@ class ProfileViewController: UICollectionViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RepoCell.Constants.reuseIdentifier, for: indexPath)
             if let cell = cell as? RepoCell {
                 if let nodes = self?.viewModel.nodes[indexPath.section],
-                    let node = nodes?[safeIndex: indexPath.row] {
-                    cell.viewModel = RepoViewModel(node: node)
+                    let node = nodes?[safeIndex: indexPath.row],
+                    let concreteNode = node {
+                    cell.viewModel = RepoViewModel(node: concreteNode)
                 } else {
                     cell.viewModel = nil
                 }

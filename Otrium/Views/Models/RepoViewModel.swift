@@ -19,9 +19,9 @@ struct RepoViewModel {
         starCount = node.stargazerCount ?? 0
         nickname = node.owner?.login ?? ""
         name = node.name ?? ""
-        description = node.description ?? ""
+        description = node.nodeDescription ?? ""
         language = node.primaryLanguage?.name ?? ""
-        guard let avatarStrURL = node.owner?.avatarUrl else {
+        guard let avatarStrURL = node.owner?.avatarURL else {
             imageUrl = nil
             return
         }

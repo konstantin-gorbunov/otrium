@@ -30,7 +30,7 @@ struct GeneralInfoViewModel {
         email = user?.email ?? ""
         followersCount = user?.followers?.totalCount ?? 0
         followingCount = user?.following?.totalCount ?? 0
-        guard let avatarStrURL = user?.avatarUrl else {
+        guard let avatarStrURL = user?.avatarURL else {
             imageUrl = nil
             return
         }

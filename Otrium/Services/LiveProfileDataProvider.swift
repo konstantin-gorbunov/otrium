@@ -28,7 +28,7 @@ struct LiveProfileDataProvider: DataProvider {
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
                 request.setValue("application/json", forHTTPHeaderField: "content-type")
-                request.setValue("bearer ghp_QMcGg8ulSHWv3Fjq5AqIPd1tucMlzj" + "30pBdl", forHTTPHeaderField: "Authorization")
+                request.setValue("bearer ghp_Y4rLWTbdwVexIBQujrALXLLwOVoJk" + "F3sNedH", forHTTPHeaderField: "Authorization")
                 request.httpBody = try Data(contentsOf: path)
                 let task = URLSession.shared.profileTask(with: request) { profile, response, error in
                     if let error = error {
@@ -39,6 +39,11 @@ struct LiveProfileDataProvider: DataProvider {
                     if let result = profile {
                         DispatchQueue.main.async {
                             completion(.success(result))
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            let error = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Invalid access token"])
+                            completion(.failure(DataProviderError.parsingFailure(inner: error)))
                         }
                     }
                 }

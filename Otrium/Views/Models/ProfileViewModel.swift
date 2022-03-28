@@ -10,7 +10,7 @@ struct ProfileViewModel {
     var pinnedNodes: [Node]? {
         return user?.pinnedItems?.nodes
     }
-    var topNodes: [Node]? {
+    var topNodes: [Node?]? {
         return user?.topRepositories?.nodes
     }
     var starNodes: [Node]? {
@@ -29,8 +29,8 @@ struct ProfileViewModel {
         }
         return headers
     }
-    var nodes: [Int: [Node]?] {
-        var nodes: [Int: [Node]?] = [0 : nil]
+    var nodes: [Int: [Node?]?] {
+        var nodes: [Int: [Node?]?] = [0 : nil]
         var sectionIndex = 1
         if (pinnedNodes?.count ?? 0) > 0 {
             nodes[sectionIndex] = pinnedNodes
